@@ -13,13 +13,7 @@ import {
   Text,
   View
 } from 'react-native';
-
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' +
-    'Cmd+D or shake for dev menu',
-  android: 'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+import { ListItem } from 'react-native-elements';
 
 export default class App extends Component<{}> {
   constructor(props) {
@@ -37,13 +31,24 @@ export default class App extends Component<{}> {
       <FlatList
         data={this.state.articles}
         keyExtractor={(item, index) => item.title}
-        renderItem={
-          ({item}) =>
-          <Text>{item.title}</Text>
-      }
+        renderItem={this.renderItem}
       />
     );
   }
+
+/*
+{
+  ({item}) =>
+  <Text>{item.title}</Text>
+}*/
+
+ renderItem = ({item}) => (
+    <ListItem
+      key={item.title}
+      title={item.title}
+      avatar={item.urlToImage}
+      />
+  );
 
   componentDidMount() {
     Article.getArticles().then((response) => {
