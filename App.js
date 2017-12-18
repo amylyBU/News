@@ -19,6 +19,9 @@ const instructions = Platform.select({
     'Shake or press menu button for dev menu',
 });
 
+const API_KEY = 'db9c40a9cec9481281a450ae6e18cba1';
+const API_ENDPOINT_URL = `https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=${API_KEY}`;
+
 export default class App extends Component<{}> {
   render() {
     return (
@@ -34,6 +37,16 @@ export default class App extends Component<{}> {
         </Text>
       </View>
     );
+  }
+
+  componentDidMount() {
+    console.log(API_ENDPOINT_URL);
+
+    fetch(API_ENDPOINT_URL)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log(responseJson);
+      });
   }
 }
 
