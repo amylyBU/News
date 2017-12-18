@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import {
   Platform,
   StyleSheet,
+  FlatList,
   Text,
   View
 } from 'react-native';
@@ -31,26 +32,23 @@ export default class App extends Component<{}> {
 
   render() {
     console.log("state", this.state);
-  
+
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit App.js
-        </Text>
-        <Text style={styles.instructions}>
-          {instructions}
-        </Text>
-      </View>
+      <FlatList
+        data={this.state.articles}
+        keyExtractor={(item, index) => item.title}
+        renderItem={
+          ({item}) =>
+          <Text>{item.title}</Text>
+      }
+      />
     );
   }
 
   componentDidMount() {
     Article.getArticles().then((response) => {
       console.log(response);
-      this.setState(response.articles)
+      this.setState({articles: response.articles});
     });
   }
 }
