@@ -51,9 +51,9 @@ class ArticleList extends Component {
   }
 
   componentDidMount() {
-    Article.getArticles().then((response) => {
-      console.log(response);
-      this.setState({articles: response.articles});
+    Article.getArticles().then((articles) => {
+      console.log(articles);
+      this.setState({articles: articles});
     });
   }
 }
