@@ -14,6 +14,7 @@ import {
   View
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
+import Header from './app/components/Header';
 
 export default class App extends Component<{}> {
   constructor(props) {
@@ -28,19 +29,16 @@ export default class App extends Component<{}> {
     console.log("state", this.state);
 
     return (
-      <FlatList
-        data={this.state.articles}
-        keyExtractor={(item, index) => item.title}
-        renderItem={this.renderItem}
-      />
+      <View>
+        <Header />
+        <FlatList
+          data={this.state.articles}
+          keyExtractor={(item, index) => item.title}
+          renderItem={this.renderItem}
+        />
+      </View>
     );
   }
-
-/*
-{
-  ({item}) =>
-  <Text>{item.title}</Text>
-}*/
 
  renderItem = ({item}) => (
     <ListItem
@@ -59,20 +57,5 @@ export default class App extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+
 });
