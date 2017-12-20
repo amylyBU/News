@@ -11,11 +11,12 @@ class ArticleDetails extends Component {
     const {article} = this.props.navigation.state.params;
     const {description} = article;
     const {urlToImage} = article;
+    console.log("url to image", urlToImage);
     return (
       <View style={{flex: 1, flexDirection: 'column'}}>
-        <Image
+        {urlToImage ? <Image
         style={styles.imageStyle}
-        source={{uri: urlToImage}} />
+        source={{uri: urlToImage}} /> : null}
         <Text>{description}</Text>
       </View>
     );

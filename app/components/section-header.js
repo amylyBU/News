@@ -11,13 +11,14 @@ const SectionHeader = (props) => {
 
 const styles = StyleSheet.create({
   headerViewStyle: {
-    backgroundColor: '#228B22',
+    backgroundColor: '#a9a9a9',
     height: 30,
     justifyContent: 'center',
     alignItems: 'center'
   },
   textStyle: {
-    fontSize: 20
+    fontSize: 20,
+    color:'#FFFFFF'
   }
 });
 

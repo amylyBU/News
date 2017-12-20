@@ -13,8 +13,9 @@ import Header from './header';
 import { articlesBySource } from '../queries/articles';
 import SectionHeader from './section-header';
 
-class ArticleList extends Component {
 
+const DEFAULT_AVATAR_URL = 'https://image.flaticon.com/teams/slug/freepik.jpg';
+class ArticleList extends Component {
   constructor(props) {
     super(props);
 
@@ -46,10 +47,14 @@ class ArticleList extends Component {
     <ListItem
       key={item.title}
       title={item.title}
-      avatar={item.urlToImage}
+      avatar={this.articleAvatar(item)}
       onPress={() => this.props.navigation.navigate("Details", { article: item })}
       />
   );
+
+  articleAvatar = ({urlToImage}) => {
+    return urlToImage != null ? urlToImage : DEFAULT_AVATAR_URL;
+  };
 
   sections = (articleGroups) => {
     const mappingFunction = (articlesInGroup, source) => ({data: articlesInGroup, title: source});
