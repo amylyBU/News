@@ -1,6 +1,6 @@
 import { StackNavigator } from 'react-navigation';
-import ArticleList from './app/components/ArticleList';
-import ArticleDetails from './app/components/ArticleDetails';
+import ArticleList from './app/components/article-list';
+import ArticleDetails from './app/components/article-details';
 
 const Navigation = StackNavigator({
   Home: {

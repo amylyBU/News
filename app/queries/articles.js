@@ -1,7 +1,8 @@
 import _ from 'lodash';
 
 const articlesBySource = (articles) => {
-    return _.groupBy(articles, (article) => article.source.name);
+  const unique = _.uniqBy(articles, (article) => article.title);
+  return _.groupBy(unique, (article) => article.source.name);
 };
 
 export { articlesBySource };

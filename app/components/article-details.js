@@ -8,9 +8,7 @@ class ArticleDetails extends Component {
   });
 
   render() {
-    const {state} = this.props.navigation;
-    const {article} = state.params;
-    console.log("article: ", article);
+    const {article} = this.props.navigation.state.params;
     const {description} = article;
     const {urlToImage} = article;
     return (
