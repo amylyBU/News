@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Article } from '../requests';
+import { Article } from '../api/articles';
 import {
   Platform,
   StyleSheet,
@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import { ListItem } from 'react-native-elements';
 import Header from './Header';
+import { articlesBySource } from '../queries/articles';
 
 class ArticleList extends Component {
 
@@ -21,7 +22,7 @@ class ArticleList extends Component {
   }
 
   static navigationOptions = {
-    title: "Yo check it"
+    title: "All About Bitcoin"
   };
 
   render() {
@@ -52,6 +53,8 @@ class ArticleList extends Component {
 
   componentDidMount() {
     Article.getArticles().then((articles) => {
+      console.log(articles);
+      articles = articlesBySource(articles);
       console.log(articles);
       this.setState({articles: articles});
     });
