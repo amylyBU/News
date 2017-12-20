@@ -13,7 +13,6 @@ import Header from './header';
 import { articlesBySource } from '../queries/articles';
 import SectionHeader from './section-header';
 
-
 const DEFAULT_AVATAR_URL = 'https://image.flaticon.com/teams/slug/freepik.jpg';
 class ArticleList extends Component {
   constructor(props) {
