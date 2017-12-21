@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { Article } from '../api/articles';
+import { ArticleAPI } from '../api/articles';
 import {
   Platform,
   StyleSheet,
@@ -66,7 +66,7 @@ class ArticleList extends Component {
   }
 
   componentDidMount() {
-    Article.getArticles().then((articles) => {
+    ArticleAPI.getArticles().then((articles) => {
       articles = articlesBySource(articles);
       this.setState({articleGroups: articles});
     });
