@@ -1,4 +1,4 @@
-import { StackNavigator, TabNavigator } from 'react-navigation';
+import { StackNavigator, TabNavigator, TabBarBottom } from 'react-navigation';
 import { Icon } from 'react-native-elements';
 import React from 'react';
 import ArticleList from './app/components/article-list';
@@ -42,6 +42,9 @@ const Navigation = TabNavigator({
       )
     }
   }
-})
+}, {
+    tabBarComponent: TabBarBottom,
+    tabBarPosition: 'bottom',
+  });
 
 export default Navigation;
