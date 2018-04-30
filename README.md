@@ -1,18 +1,18 @@
 # News
 
-A project dabbling in React Native for the first time. <i>Disclaimer: Might be broken.</i>
+A project dabbling in React Native for the first time. <i>Disclaimer: Probably broken.</i>
 
 ## Features
 
-1) Web request to GET news from the [News API](https://newsapi.org/)
-2) `react-navigation` as our navigation library of choice
+1) GET request for news from the [News API](https://newsapi.org/)
+2) Use of `react-navigation` as our navigation library
 
 ## Set up
 
 Clone the project and `cd` into the project directory
 ```
-https://github.com/amylyBU/News.git
-cd News
+git clone https://github.com/amyslies/react-native-news-app.git
+cd react-native-news-app
 ```
 
 Install any dependencies
